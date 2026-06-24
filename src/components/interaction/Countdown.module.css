@@ -1,0 +1,248 @@
+/* Countdown.module.css */
+
+.card {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ec4899;
+}
+
+.addBtn {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.addBtn:hover {
+  color: #ec4899;
+  border-color: rgba(236, 72, 153, 0.3);
+  background: rgba(236, 72, 153, 0.06);
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 10px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  animation: slideDown 0.15s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.input {
+  padding: 6px 10px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  font-family: inherit;
+  outline: none;
+  flex: 1;
+  min-width: 80px;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: #ec4899;
+}
+
+.confirmBtn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: #ec4899;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.confirmBtn:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.confirmBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.item {
+  padding: 10px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.item:hover {
+  border-color: var(--border);
+}
+
+.expired {
+  opacity: 0.45;
+}
+
+.itemHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+}
+
+.itemName {
+  flex: 1;
+  font-size: 0.813rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.itemRemove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.item:hover .itemRemove {
+  opacity: 0.7;
+}
+
+.itemRemove:hover {
+  opacity: 1 !important;
+  color: #da3633;
+  background: rgba(218, 54, 51, 0.1);
+}
+
+.timeRow {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.timeBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 46px;
+  padding: 6px 2px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  border: 1px solid transparent;
+}
+
+.timeBlockDays {
+  background: linear-gradient(180deg, rgba(236, 72, 153, 0.1), rgba(236, 72, 153, 0.02));
+  border-color: rgba(236, 72, 153, 0.15);
+}
+
+.timeBlockHours {
+  background: linear-gradient(180deg, rgba(108, 92, 231, 0.1), rgba(108, 92, 231, 0.02));
+  border-color: rgba(108, 92, 231, 0.15);
+}
+
+.timeBlockMins {
+  background: linear-gradient(180deg, rgba(0, 168, 142, 0.1), rgba(0, 168, 142, 0.02));
+  border-color: rgba(0, 168, 142, 0.15);
+}
+
+.timeBlockSecs {
+  background: linear-gradient(180deg, rgba(240, 165, 0, 0.1), rgba(240, 165, 0, 0.02));
+  border-color: rgba(240, 165, 0, 0.15);
+}
+
+.timeNum {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.timeBlockDays .timeNum { color: #ec4899; }
+.timeBlockHours .timeNum { color: var(--accent); }
+.timeBlockMins .timeNum { color: var(--accent-secondary); }
+.timeBlockSecs .timeNum { color: var(--accent-warning); }
+
+.timeLabel {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+.expiredText {
+  text-align: center;
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.empty {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 12px 0;
+  margin: 0;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  opacity: 0.5;
+  display: block;
+  margin: 12px auto;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

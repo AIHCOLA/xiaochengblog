@@ -1,0 +1,136 @@
+/* PomodoroTimer.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  height: 100%;
+  justify-content: center;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+}
+
+.title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.phaseBadge {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+.workBadge {
+  background: rgba(108, 92, 231, 0.15);
+  color: var(--accent);
+}
+
+.breakBadge {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+/* Ring */
+.ringWrap {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.ring {
+  width: 100%;
+  height: 100%;
+}
+
+.progressRing {
+  transition: stroke-dashoffset 1s linear;
+}
+
+.timeDisplay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.timeText {
+  font-size: 2.4rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+
+.phaseLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ctrlBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ctrlBtn:hover {
+  border-color: var(--accent);
+  background: rgba(108, 92, 231, 0.1);
+  transform: scale(1.05);
+}
+
+.ctrlBtn:active {
+  transform: scale(0.95);
+}
+
+/* Stats */
+.stats {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.stats strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.checkDot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  vertical-align: middle;
+}

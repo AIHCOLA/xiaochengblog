@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(npm uninstall *)",
+      "Bash(npm install *)",
+      "Bash(mvn compile *)",
+      "Bash(jar --file=/c/Users/20823/xiaochengblog-server/target/blog-server-1.0.0/WEB-INF/lib/mybatis-plus-spring-boot3-starter-3.5.10.jar tf)",
+      "Bash(mvn dependency:tree -Dincludes=com.baomidou:*)",
+      "Bash(mvn dependency:resolve -U)",
+      "Bash(unzip -l __TRACKED_VAR__/.m2/repository/com/baomidou/mybatis-plus-extension/3.5.14/mybatis-plus-extension-3.5.14.jar)",
+      "Bash(grep \"\\\\.class$\")",
+      "Bash(unzip -l __TRACKED_VAR__/.m2/repository/com/baomidou/mybatis-plus-core/3.5.14/mybatis-plus-core-3.5.14.jar)",
+      "Bash(xargs -I{} sh -c 'unzip -l \"{}\" 2>/dev/null | grep -l \"Pagination\" && echo \"FOUND IN: {}\"')",
+      "Bash(unzip -l __TRACKED_VAR__/.m2/repository/com/baomidou/mybatis-plus-jsqlparser/3.5.14/mybatis-plus-jsqlparser-3.5.14.jar)",
+      "Bash(./node_modules/.bin/tsc -b --noEmit)",
+      "Bash(npx --yes typescript/bin/tsc -b --noEmit)",
+      "Bash(node node_modules/typescript/bin/tsc -b --noEmit)",
+      "Bash(mvn -f /c/Users/20823/xiaochengblog-server/pom.xml compile)",
+      "Bash(netstat -ano)",
+      "Bash(mvn -f /c/Users/20823/xiaochengblog-server/pom.xml spring-boot:run)",
+      "Bash(curl -s http://localhost:8080/api/posts)",
+      "Bash(curl -s http://localhost:8080/api/posts?page=1\\\\&size=3)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(f'code={d[\\\\\"code\\\\\"]}, total={d[\\\\\"data\\\\\"][\\\\\"total\\\\\"]}, page={d[\\\\\"data\\\\\"][\\\\\"page\\\\\"]}, items={len\\(d[\\\\\"data\\\\\"][\\\\\"items\\\\\"]\\)}'\\)\")",
+      "Bash(curl -s http://localhost:8080/api/categories)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(f'code={d[\\\\\"code\\\\\"]}, count={len\\(d[\\\\\"data\\\\\"]\\)}'\\)\")",
+      "Bash(curl -s http://localhost:8080/api/tags)",
+      "Bash(curl -s http://localhost:8080/api/posts/featured)",
+      "Bash(curl -s \"http://localhost:8080/api/posts?page=1&size=3\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('code=%d total=%d items=%d' % \\(d['code'], d['data']['total'], len\\(d['data']['items']\\)\\)\\)\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('code=%d count=%d' % \\(d['code'], len\\(d['data']\\)\\)\\)\")",
+      "Bash(curl -s -c /tmp/cookies.txt -X POST http://localhost:8080/api/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"demo@xiaocheng.dev\",\"password\":\"demo123\"}')",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('code=%d username=%s role=%s' % \\(d['code'], d['data']['username'], d['data']['role']\\)\\)\")",
+      "Read(//tmp/**)"
+    ]
+  }
+}

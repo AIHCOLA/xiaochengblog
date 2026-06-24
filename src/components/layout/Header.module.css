@@ -1,0 +1,393 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+  height: var(--header-height);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-normal), background var(--transition-normal);
+}
+
+[data-theme='dark'] .header {
+  background: rgba(10, 10, 15, 0.85);
+}
+
+.scrolled {
+  border-bottom-color: var(--border);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+[data-theme='dark'] .scrolled {
+  background: rgba(10, 10, 15, 0.92);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  height: 100%;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+
+  &:hover {
+    color: var(--text-primary);
+  }
+}
+
+.logoIcon {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+.logoText {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logoAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  flex-shrink: 0;
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.logoEditBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  transition: all var(--transition-fast);
+}
+
+.logoWrap:hover .logoEditBtn {
+  opacity: 1;
+}
+
+.logoEditBtn:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+/* Author edit modal */
+.authorModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: var(--space-xl);
+}
+
+.authorModalContent {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  width: 100%;
+  max-width: 400px;
+}
+
+.authorModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.authorModalClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.authorModalClose:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.authorModalBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.authorField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.813rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.authorInput {
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.authorInput:focus {
+  border-color: var(--accent);
+}
+
+.authorInput::placeholder {
+  color: var(--text-muted);
+}
+
+.authorActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  margin-top: 4px;
+}
+
+.authorCancelBtn {
+  padding: 8px 16px;
+  font-size: 0.813rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.authorCancelBtn:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.authorSaveBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  font-size: 0.813rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.authorSaveBtn:hover {
+  background: var(--accent-hover);
+}
+
+/* Desktop Nav */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navLink {
+  padding: 8px 16px;
+  font-size: 0.938rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+  }
+
+  &.active {
+    color: var(--accent);
+    background: rgba(108, 92, 231, 0.1);
+  }
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+
+  &:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+  }
+}
+
+.loginBtn {
+  padding: 6px 18px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #fff;
+  background: var(--accent);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background: var(--accent-hover);
+    box-shadow: var(--shadow-glow);
+    color: #fff;
+  }
+}
+
+/* Mobile toggle */
+.menuToggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  transition: background var(--transition-fast);
+
+  &:hover {
+    background: var(--bg-tertiary);
+  }
+}
+
+/* Mobile menu — rendered to document.body via portal, escapes all stacking contexts */
+.mobileMenu {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+  background: var(--bg-primary);
+  padding: var(--space-lg);
+  overflow-y: auto;
+  animation: fadeIn 0.2s ease;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobileNavLink {
+  display: block;
+  padding: 14px 16px;
+  font-size: 1.063rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  background: none;
+  border: none;
+  text-align: left;
+
+  &:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+  }
+
+  &.active {
+    color: var(--accent);
+    background: rgba(108, 92, 231, 0.1);
+  }
+}
+
+.divider {
+  margin: var(--space-md) 0;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+.mobileUser {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.mobileUserName {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .menuToggle {
+    display: flex;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

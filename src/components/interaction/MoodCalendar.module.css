@@ -1,0 +1,589 @@
+/* ================================================================
+   Widget wrapper
+   ================================================================ */
+
+.widget {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ================================================================
+   Header
+   ================================================================ */
+
+.header {
+  margin-bottom: var(--space-sm);
+}
+
+.headerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #f97316;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.monthNav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.navBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+  }
+}
+
+.monthLabel {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 110px;
+  text-align: center;
+}
+
+/* ── Stats row ── */
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+
+  strong {
+    color: #f97316;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+}
+
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* ================================================================
+   Calendar grid
+   ================================================================ */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 4px 0 6px;
+}
+
+/* ── Day cells ── */
+
+.cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  aspect-ratio: 1;
+  padding: 4px 2px 5px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+  min-width: 0;
+
+  &:hover:not(.future) {
+    background: var(--bg-elevated);
+  }
+}
+
+.dayNum {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  line-height: 1;
+  z-index: 1;
+}
+
+.cellIcon {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 3px;
+  z-index: 1;
+}
+
+.stampMini {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(249, 115, 22, 0.35);
+}
+
+.moodEmoji {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+/* today */
+.today {
+  box-shadow: inset 0 0 0 1.5px rgba(249, 115, 22, 0.45);
+
+  .dayNum {
+    color: #f97316;
+    font-weight: 700;
+  }
+}
+
+/* future days */
+.future {
+  cursor: default;
+  opacity: 0.35;
+}
+
+/* checked-in day background */
+.checked {
+  background: rgba(249, 115, 22, 0.08);
+
+  &:hover:not(.future) {
+    background: rgba(249, 115, 22, 0.16);
+  }
+}
+
+/* selected date */
+.selected {
+  box-shadow: inset 0 0 0 1.5px #f97316, 0 0 0 3px rgba(249, 115, 22, 0.2);
+  background: rgba(249, 115, 22, 0.1);
+}
+
+/* ================================================================
+   Action buttons
+   ================================================================ */
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: var(--space-sm);
+}
+
+.actionBtn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover:not(:disabled) {
+    border-color: #f97316;
+    background: rgba(249, 115, 22, 0.08);
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.7;
+  }
+}
+
+.checkInBtn {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: #fff;
+  border-color: transparent;
+  font-weight: 600;
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #ea580c, #f97316);
+    border-color: transparent;
+    box-shadow: 0 2px 16px rgba(249, 115, 22, 0.4);
+  }
+}
+
+.actionBtnDone {
+  background: rgba(249, 115, 22, 0.12);
+  border-color: rgba(249, 115, 22, 0.3);
+  color: #f97316;
+
+  &:hover {
+    background: rgba(249, 115, 22, 0.2) !important;
+    border-color: #f97316 !important;
+    box-shadow: 0 2px 12px rgba(249, 115, 22, 0.25) !important;
+    transform: translateY(-1px) !important;
+  }
+}
+
+.actionEmoji {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ================================================================
+   Stamp animation overlay
+   ================================================================ */
+
+.stampOverlay {
+  position: fixed;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.stampOuter {
+  animation: stampIn 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes stampIn {
+  0% {
+    transform: scale(3) rotate(-12deg);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.05) rotate(2deg);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(0.95) rotate(-1deg);
+  }
+  50% {
+    transform: scale(1) rotate(0deg);
+  }
+  80% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+.stampSeal {
+  width: 72px;
+  height: 72px;
+  border: 2.5px solid #f97316;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(249, 115, 22, 0.12);
+  box-shadow:
+    0 0 0 3px #f97316,
+    0 0 0 6px rgba(249, 115, 22, 0.25),
+    0 4px 24px rgba(249, 115, 22, 0.35);
+  color: #f97316;
+  gap: 0px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.stampDate {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.stampText {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+/* ================================================================
+   Emoji picker popover
+   ================================================================ */
+
+.picker {
+  position: fixed;
+  z-index: 99999;
+  width: 420px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  padding: var(--space-md);
+  animation: pickerIn 0.2s ease-out;
+}
+
+@keyframes pickerIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.pickerHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  cursor: grab;
+  user-select: none;
+  padding: 4px 0;
+}
+
+.dragHandle {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.pickerDate {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  flex: 1;
+}
+
+.pickerClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+  }
+}
+
+.pickerGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+}
+
+.moodOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  aspect-ratio: 1;
+  padding: 6px 4px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  cursor: pointer;
+  transition: all 0.18s;
+
+  &:hover {
+    border-color: #f97316;
+    background: rgba(249, 115, 22, 0.1);
+    transform: translateY(-2px) scale(1.06);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.moodSelected {
+  border-color: #f97316;
+  background: rgba(249, 115, 22, 0.18);
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.35);
+}
+
+.moodOptionEmoji {
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: transform 0.15s;
+
+  .moodOption:hover & {
+    transform: scale(1.2);
+  }
+}
+
+.moodOptionLabel {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+.clearBtn {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 6px 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+
+  &:hover {
+    color: #e5534b;
+    background: rgba(229, 83, 75, 0.08);
+  }
+}
+
+/* ================================================================
+   Celebration particles — screen-filling happiness burst
+   ================================================================ */
+
+/* Quick warm flash overlay */
+.particleFlash {
+  position: fixed;
+  inset: 0;
+  z-index: 99998;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(255, 220, 180, 0.15) 0%, rgba(255, 180, 220, 0.06) 50%, transparent 75%);
+  animation: flashPulse 0.6s ease-out both;
+}
+
+@keyframes flashPulse {
+  0%   { opacity: 0; }
+  25%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.particlesContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  font-size: var(--size, 1.5rem);
+  animation: particleBurst var(--dur, 2.5s) var(--delay, 0s) linear both;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+@keyframes particleBurst {
+  0% {
+    opacity: 0;
+    transform: translate(var(--px, 0px), -12vh) scale(0.5) rotate(0deg);
+  }
+  4% {
+    opacity: 1;
+    transform: translate(var(--px, 0px), -2vh) scale(1) rotate(calc(var(--rot, 0deg) * 0.2));
+  }
+  30% {
+    opacity: 1;
+    transform:
+      translate(
+        calc(var(--px, 0px) + 15px),
+        35vh
+      )
+      scale(0.95) rotate(calc(var(--rot, 0deg) * 0.5));
+  }
+  60% {
+    opacity: 1;
+    transform:
+      translate(
+        calc(var(--px, 0px) - 20px),
+        70vh
+      )
+      scale(0.9) rotate(calc(var(--rot, 0deg) * 0.8));
+    /* fully visible, swaying mid-air */
+  }
+  85% {
+    opacity: 0.9;
+    transform:
+      translate(
+        calc(var(--px, 0px) + 5px),
+        95vh
+      )
+      scale(0.8) rotate(var(--rot, 0deg));
+    /* reaching the bottom, still visible */
+  }
+  95% {
+    opacity: 0.3;
+    transform:
+      translate(var(--px, 0px), 105vh)
+      scale(0.6) rotate(calc(var(--rot, 0deg) * 1.1));
+    /* just slipped below the screen */
+  }
+  100% {
+    opacity: 0;
+    transform:
+      translate(var(--px, 0px), 115vh)
+      scale(0.4) rotate(calc(var(--rot, 0deg) * 1.3));
+    /* gone */
+  }
+}

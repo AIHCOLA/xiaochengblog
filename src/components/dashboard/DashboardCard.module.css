@@ -1,0 +1,135 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  box-sizing: border-box;
+  min-width: 0;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.wrapper:hover {
+  border-color: color-mix(in srgb, var(--accent) 20%, var(--border));
+  box-shadow: var(--shadow-md);
+}
+
+.wrapper[data-size="small"] {
+  min-height: 140px;
+}
+
+.wrapper[data-size="medium"] {
+  min-height: 200px;
+}
+
+.wrapper[data-size="large"] {
+  min-height: 280px;
+}
+
+.content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content > :first-child {
+  flex: 1;
+  min-height: 0;
+}
+
+.wrapper:hover .controls,
+.wrapper[data-edit="true"] .controls {
+  opacity: 1;
+}
+
+.controls {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.ctrlBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.ctrlBtn:hover {
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+}
+
+.ctrlBtn:last-child:hover {
+  background: #da3633;
+}
+
+.dragHandle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--text-muted);
+  cursor: grab;
+  border-radius: var(--radius-sm);
+  touch-action: none;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+  color: var(--accent);
+}
+
+.dragging {
+  opacity: 0.3;
+}
+
+/* Resize handle */
+.resizeHandle {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 20px;
+  height: 20px;
+  cursor: nwse-resize;
+  z-index: 21;
+  touch-action: none;
+  border-radius: 0 0 var(--radius-lg) 0;
+}
+
+.resizeHandle::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 10px 10px;
+  border-color: transparent transparent var(--text-muted) transparent;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+
+.resizeHandle:hover::after {
+  border-color: transparent transparent var(--accent) transparent;
+  opacity: 0.9;
+}

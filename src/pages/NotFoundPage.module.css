@@ -1,0 +1,108 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 60vh;
+  position: relative;
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: 10rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(108, 92, 231, 0.08), transparent 70%);
+  pointer-events: none;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.desc {
+  font-size: 0.938rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xl);
+  max-width: 400px;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.homeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.938rem;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background: var(--accent-hover);
+    color: #fff;
+  }
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.938rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    color: var(--text-primary);
+    background: var(--bg-elevated);
+  }
+}
+
+@media (max-width: 480px) {
+  .code {
+    font-size: 6rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+
+    a,
+    button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}

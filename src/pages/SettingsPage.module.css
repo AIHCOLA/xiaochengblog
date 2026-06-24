@@ -1,0 +1,149 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-xl);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.headerIcon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Sections */
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.section {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: var(--space-md) var(--space-lg);
+  font-size: 0.813rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Toggle row */
+.toggleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border-light);
+  transition: background var(--transition-fast);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: var(--bg-tertiary);
+  }
+}
+
+.toggleIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.toggleInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toggleLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.toggleDesc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Toggle Switch */
+.toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.toggleOn {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.toggleThumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.toggleOn .toggleThumb {
+  transform: translateX(20px);
+}
+
+.note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+}

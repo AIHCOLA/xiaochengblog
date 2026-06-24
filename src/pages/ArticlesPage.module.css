@@ -1,0 +1,52 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.featuredSection {
+  margin-bottom: var(--space-sm);
+}
+
+.featuredGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.allSection {
+  /* container for all articles */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}
+
+.empty p {
+  font-size: 0.938rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

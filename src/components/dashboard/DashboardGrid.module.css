@@ -1,0 +1,56 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+/* Non-empty columns use display:contents so cards become direct grid children
+   and can span grid columns via grid-column */
+.column {
+  display: contents;
+}
+
+/* Empty columns need a visible box for drop targeting */
+.columnEmpty {
+  min-height: 120px;
+  border-radius: var(--radius-lg);
+  transition: background 0.15s, outline 0.15s;
+  border: 1px dashed var(--border);
+}
+
+.columnDropOver {
+  background: rgba(108, 92, 231, 0.06);
+  border-color: var(--accent);
+}
+
+.columnPlaceholder {
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  color: var(--text-muted);
+}
+
+.columnPlaceholderIcon {
+  opacity: 0.3;
+}
+
+.columnPlaceholderText {
+  font-size: 0.813rem;
+  opacity: 0.5;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

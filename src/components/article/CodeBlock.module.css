@@ -1,0 +1,117 @@
+.codeBlock {
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #0d1117; /* GitHub dark — consistent with highlight theme */
+}
+
+/* ---------- header bar ---------- */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  user-select: none;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #8b949e;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+
+  &:hover {
+    color: #c9d1d9;
+    background: #30363d;
+  }
+}
+
+.lang {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #8b949e;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+
+.copyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border: 1px solid #30363d;
+  border-radius: var(--radius-sm);
+  background: #21262d;
+  color: #c9d1d9;
+  font-family: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &:hover {
+    background: #30363d;
+    border-color: #484f58;
+  }
+}
+
+.copied {
+  border-color: #238636;
+  background: #1b3a24;
+  color: #7ee787;
+
+  &:hover {
+    background: #1b3a24;
+    border-color: #238636;
+  }
+}
+
+/* ---------- body ---------- */
+.body {
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 6000px; /* tall enough for any reasonable snippet */
+  opacity: 1;
+  overflow: hidden;
+
+  pre {
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+
+  code {
+    display: block;
+    padding: 1.25rem !important;
+    background: transparent !important;
+    border: none !important;
+    color: #c9d1d9 !important;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    overflow-x: auto;
+    white-space: pre;
+    font-family: var(--font-mono);
+  }
+}
+
+.collapsed .body {
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+}
+
+.collapsed .header {
+  border-bottom: none;
+}

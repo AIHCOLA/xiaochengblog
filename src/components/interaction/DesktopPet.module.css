@@ -1,0 +1,107 @@
+/* DesktopPet.module.css */
+
+.pet {
+  position: fixed;
+  z-index: 9999;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  transition: filter 0.2s, transform 0.15s ease-out;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+.pet:hover {
+  filter: drop-shadow(0 4px 16px rgba(108, 92, 231, 0.3));
+  transform: scale(1.05);
+}
+
+.pet:active {
+  cursor: grabbing;
+}
+
+.pet.dragging {
+  cursor: grabbing;
+  transition: none;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.5));
+  transform: scale(1.08);
+  z-index: 10000;
+}
+
+.gif {
+  display: block;
+  max-width: 180px;
+  max-height: 180px;
+  pointer-events: none;
+  image-rendering: auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+.dragging .gif {
+  animation: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Speech bubble */
+.bubble {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 12px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  animation: bubbleIn 0.25s ease-out, bubbleOut 0.25s ease-in 1.25s forwards;
+  pointer-events: none;
+}
+
+.bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--bg-secondary);
+}
+
+@keyframes bubbleIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(6px) scale(0.8); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+@keyframes bubbleOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .pet {
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.3));
+  }
+  .pet:hover {
+    filter: drop-shadow(0 3px 12px rgba(108, 92, 231, 0.25));
+    transform: scale(1.03);
+  }
+  .pet.dragging {
+    transform: scale(1.06);
+  }
+  .bubble {
+    font-size: 0.65rem;
+    padding: 3px 10px;
+    top: -30px;
+  }
+}

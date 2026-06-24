@@ -1,0 +1,62 @@
+/* ---------- article layout with TOC ---------- */
+.articleLayout {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.articleMain {
+  min-width: 0; /* prevent grid blowout from long code lines */
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1024px) {
+  .articleLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- 404 ---------- */
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-3xl) var(--space-lg);
+  min-height: 50vh;
+}
+
+.notFoundIcon {
+  color: var(--text-muted);
+  margin-bottom: var(--space-lg);
+  opacity: 0.3;
+}
+
+.notFound h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.notFound p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.backHome {
+  display: inline-block;
+  padding: 10px 24px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background: var(--accent-hover);
+    color: #fff;
+  }
+}

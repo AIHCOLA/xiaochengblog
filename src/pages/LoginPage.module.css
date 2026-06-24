@@ -1,0 +1,138 @@
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-xl);
+  background: var(--bg-primary);
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: var(--space-2xl);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  margin-bottom: var(--space-lg);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 0.938rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xl);
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.error {
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  color: var(--accent-danger);
+  background: rgba(225, 112, 85, 0.1);
+  border: 1px solid rgba(225, 112, 85, 0.3);
+  border-radius: var(--radius-md);
+}
+
+.submitBtn {
+  margin-top: var(--space-sm);
+  width: 100%;
+}
+
+.switch {
+  margin-top: var(--space-lg);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.hint {
+  margin-top: var(--space-md);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.divider {
+  width: 100%;
+  margin-top: var(--space-lg);
+  text-align: center;
+  position: relative;
+}
+.divider span {
+  padding: 0 12px;
+  font-size: 0.813rem;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  position: relative;
+  z-index: 1;
+}
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border);
+}
+
+.oauthButtons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: var(--space-lg);
+}
+
+.oauthBtn {
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.oauthBtn:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--accent);
+}

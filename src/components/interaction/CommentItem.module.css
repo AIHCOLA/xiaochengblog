@@ -1,0 +1,122 @@
+.comment {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: 4px;
+}
+
+.author {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.content {
+  font-size: 0.938rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-sm);
+  margin-top: 0;
+  word-break: break-word;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+  }
+}
+
+/* Reply form */
+.replyForm {
+  margin-top: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.replyInputs {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.replyNameInput,
+.replyEmailInput {
+  flex: 1;
+}
+
+.replyActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+/* Nested replies */
+.replies {
+  margin-top: var(--space-sm);
+  padding-left: var(--space-lg);
+  border-left: 2px solid var(--border);
+}
+
+@media (max-width: 480px) {
+  .replyInputs {
+    flex-direction: column;
+  }
+
+  .replies {
+    padding-left: var(--space-md);
+  }
+}

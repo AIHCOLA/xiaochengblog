@@ -1,0 +1,243 @@
+/* QuickLinks.module.css */
+
+.card {
+  padding: var(--space-md);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+}
+
+.icon { color: #3b82f6; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  padding: 10px 4px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  text-decoration: none;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.link:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+.linkIcon {
+  font-size: 1.3rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+
+/* Favicon image */
+.favicon {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  object-fit: contain;
+}
+
+/* Fallback colored circle */
+.fallbackIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.linkName {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Header buttons */
+.headerBtns {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.editToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.editToggle:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.editActive {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.addToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.addToggle:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+/* Add form */
+.addForm {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: var(--space-sm);
+  padding: 8px;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+}
+
+.addInput {
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.75rem;
+  outline: none;
+  width: 100%;
+}
+
+.addInput:focus {
+  border-color: #3b82f6;
+}
+
+.urlRow {
+  display: flex;
+  gap: 6px;
+}
+
+.addActions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.saveBtn,
+.cancelBtn {
+  padding: 4px 12px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.saveBtn {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.saveBtn:hover { background: #2563eb; }
+
+.cancelBtn {
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+}
+
+.cancelBtn:hover { color: var(--text-primary); }
+
+/* Form label */
+.formLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Link wrapper */
+.linkWrap {
+  position: relative;
+}
+
+.removeBtn {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  background: #da3633;
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+  animation: popIn 0.15s ease-out;
+}
+
+.removeBtn:hover { background: #b91c1c; }
+
+@keyframes popIn {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+.link {
+  cursor: pointer;
+}
