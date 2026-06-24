@@ -367,7 +367,7 @@ export function VinylPlayer() {
                     )}
                     {!lyricLoading && lyrics.length === 0 && (
                       <div className={styles.searchStatus}>
-                        {track.id > 0 ? '暂无歌词' : '当前为默认曲目，不支持歌词'}
+                        {Number(track.id) > 0 ? '暂无歌词' : '当前为默认曲目，不支持歌词'}
                       </div>
                     )}
                     {lyrics.map((line, i) => (
@@ -403,12 +403,12 @@ export function VinylPlayer() {
                           <div className={styles.songInfo}>
                             <div className={styles.songNameRow}>
                               <span className={styles.songName}>{t.title}</span>
-                              {t.id > 0 && (
+                              {Number(t.id) > 0 && (
                                 <span className={`${styles.platformBadge} ${styles[`platform${t.platform.charAt(0).toUpperCase() + t.platform.slice(1)}`] || ''}`}>
                                   {PLATFORM_OPTIONS.find((p) => p.key === t.platform)?.label || t.platform}
                                 </span>
                               )}
-                              {t.id > 0 && (
+                              {Number(t.id) > 0 && (
                                 <span className={`${styles.feeBadge} ${styles[fee.cls]}`}>{fee.text}</span>
                               )}
                             </div>
@@ -501,7 +501,7 @@ export function VinylPlayer() {
             {lyricLoading ? (
               <span className={styles.desktopLyricsLine}><Loader2 size={12} className={styles.spinner} /> 加载中...</span>
             ) : lyrics.length === 0 ? (
-              <span className={styles.desktopLyricsLine}>{track.id > 0 ? '暂无歌词' : '当前为默认曲目，不支持歌词'}</span>
+              <span className={styles.desktopLyricsLine}>{Number(track.id) > 0 ? '暂无歌词' : '当前为默认曲目，不支持歌词'}</span>
             ) : currentLyricIdx >= 0 ? (
               <>
                 {currentLyricIdx > 0 && (
