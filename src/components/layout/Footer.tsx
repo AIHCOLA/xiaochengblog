@@ -24,7 +24,7 @@ export function Footer() {
   const { allCategories } = usePosts();
   const { user, isLoggedIn } = useAuth();
 
-  const brandName = isLoggedIn && user ? user.username : 'My Blog';
+  const brandName = isLoggedIn && user ? user.username : 'Blog';
   const descriptionLines = isLoggedIn && user?.bio
     ? [user.bio]
     : ['写代码，思考架构，偶尔写写文章。', '专注于 Web 技术与分布式系统。'];
