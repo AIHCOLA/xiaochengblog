@@ -49,7 +49,7 @@ export function Header() {
             ) : (
               <span className={styles.logoIcon}>{'<'}</span>
             )}
-            <span className={styles.logoText}>{user?.username || 'My Blog'}</span>
+            <span className={styles.logoText}>{user?.username || 'Blog'}</span>
             {!user?.avatar && <span className={styles.logoIcon}>{'/>'}</span>}
           </Link>
         </div>
